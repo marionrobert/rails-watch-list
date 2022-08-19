@@ -1,0 +1,19 @@
+<h1><%= @list.name %></h1>
+
+<ul>
+  <% @list.bookmarks.each do |bookmark| %>
+    <li>
+      <%= bookmark.movie.title %> - <%= bookmark.movie.overview %> -
+      <%= image_tag bookmark.movie.poster_url, style: 'height:20vw;width:15vw;margin-bottom:20px;' %>
+      - <%= bookmark.movie.rating %>
+      <%= link_to bookmark_path(bookmark),
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  do%>
+        <i class="fa-solid fa-trash-can"></i>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "My lists", root_path %>
+<br>
+<%= link_to "Add a movie to your list",  new_list_bookmark_path(@list)  %>

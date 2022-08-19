@@ -1,0 +1,17 @@
+<h1>My lists</h1>
+
+<div class="container">
+  <div class="row">
+    <% @lists.each do |list|  %>
+      <div class="card-category col-4" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+        <%= link_to list_path(list) do %>
+          <%= list.name %>
+        <% end %>
+      </div>
+    <% end  %>
+  </div>
+</div>
+
+<br>
+
+<%= link_to "Create a movie list", new_list_path, :class => "btn btn-ghost" %>
